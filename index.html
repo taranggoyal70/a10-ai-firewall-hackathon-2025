@@ -7,229 +7,268 @@
 <meta name="description" content="Winning product strategy from the A10 Networks AI Product Manager Hackathon 2025: an AI Workload Protection platform that unblocks enterprise AI adoption by making it safe. $60M ARR plan, 95% threat detection." />
 <style>
   :root{
-    --ink:#0a0c10; --surface:#12161c; --raised:#171d25; --line:rgba(180,190,205,.12);
-    --line2:rgba(180,190,205,.22); --paper:#eef2f6; --muted:#8a97a6; --muted2:#b4c0cc;
-    --accent:#ff5a3c; --accent2:#ff8a3c; --good:#34d399; --cyan:#38bdf8;
+    --ink:#0a0c10;--surface:#12161c;--raised:#181e26;--line:rgba(180,195,210,.12);
+    --line2:rgba(180,195,210,.24);--paper:#f0f3f7;--muted:#8996a6;--muted2:#c2ccd6;
+    --accent:#ff5a3c;--accent2:#ffa23c;--good:#3ddc97;--cyan:#4cc4ff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:radial-gradient(900px 480px at 82% -8%,rgba(255,90,60,.10),transparent 60%),var(--ink);
-    color:var(--paper);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{background:var(--ink);color:var(--paper);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
   .tabular{font-variant-numeric:tabular-nums}
+  .grad{background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
   /* nav */
-  nav{position:sticky;top:0;z-index:20;background:rgba(10,12,16,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-  .brand{display:flex;align-items:center;gap:9px;font-weight:700}
-  .logo{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0c10;font-weight:900;font-size:13px}
-  .navlinks{display:flex;gap:22px;font-size:14px;color:var(--muted)}
-  .navlinks a:hover{color:var(--paper)}
-  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;padding:9px 16px;font-weight:600;font-size:14px;transition:.15s}
-  .btn-a{background:var(--accent);color:#0a0c10}.btn-a:hover{background:var(--accent2)}
+  nav{position:sticky;top:0;z-index:20;background:rgba(10,12,16,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+  .logo{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0c10;font-weight:900}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:10px 18px;font-weight:600;font-size:14px;transition:.15s}
+  .btn-a{background:var(--accent);color:#0a0c10}.btn-a:hover{background:var(--accent2);transform:translateY(-1px)}
   .btn-o{border:1px solid var(--line2);color:var(--paper)}.btn-o:hover{border-color:var(--accent)}
-  @media(max-width:720px){.navlinks{display:none}}
+  /* section rhythm */
+  section{padding:96px 0}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h2{font-size:clamp(30px,5vw,46px);letter-spacing:-.025em;line-height:1.05;margin-top:14px;font-weight:800;max-width:16ch}
+  .lead{color:var(--muted2);font-size:19px;max-width:52ch;margin-top:16px}
   /* hero */
-  .hero{padding:76px 0 40px}
-  .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted2);background:var(--surface)}
-  h1{font-size:clamp(38px,6vw,66px);line-height:1.03;letter-spacing:-.02em;margin:22px 0 0;font-weight:800}
-  .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lede{font-size:22px;color:var(--muted2);max-width:720px;margin-top:20px}
-  .quote{font-size:16px;color:var(--muted);max-width:680px;margin-top:14px;border-left:3px solid var(--accent);padding-left:14px}
-  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .hero{padding:90px 0 40px;text-align:center;position:relative}
+  .hero::before{content:"";position:absolute;inset:-40% 0 auto;height:520px;background:radial-gradient(600px 320px at 50% 0,rgba(255,90,60,.16),transparent 70%);z-index:-1}
+  .pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line2);border-radius:999px;padding:8px 18px;font-size:14px;color:var(--muted2);background:var(--surface)}
+  h1{font-size:clamp(42px,8vw,82px);line-height:.98;letter-spacing:-.035em;margin:26px auto 0;font-weight:850;max-width:14ch}
+  .hero .lead{margin:22px auto 0;font-size:21px}
+  .cta{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
   /* metrics */
-  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
-  .metric{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .metric .n{font-size:34px;font-weight:800;letter-spacing:-.02em}
-  .metric .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:80px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .metric{background:var(--ink);padding:30px 24px;text-align:center}
+  .metric .n{font-size:clamp(34px,5vw,50px);font-weight:850;letter-spacing:-.03em;line-height:1}
+  .metric .l{font-size:13px;color:var(--muted);margin-top:10px}
   @media(max-width:720px){.metrics{grid-template-columns:repeat(2,1fr)}}
-  /* sections */
-  section{padding:64px 0;border-top:1px solid var(--line)}
-  .kicker{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-  h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;margin-top:10px;font-weight:800}
-  .sub{color:var(--muted2);max-width:720px;margin-top:12px;font-size:17px}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
-  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
-  @media(max-width:820px){.grid3,.grid2{grid-template-columns:1fr}}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .card h3{font-size:18px;margin-bottom:8px}
-  .card p{color:var(--muted2);font-size:15px}
-  .card .tag{font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-  ul.clean{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
-  ul.clean li{color:var(--muted2);font-size:15px;padding-left:20px;position:relative}
-  ul.clean li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+  /* problem: big numbered rows */
+  .rows{margin-top:44px;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .row{background:var(--ink);display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;padding:26px 28px}
+  .row .idx{font-size:32px;font-weight:850;color:var(--accent);opacity:.55;line-height:1}
+  .row h3{font-size:20px;font-weight:700}
+  .row p{color:var(--muted);font-size:15px;margin-top:2px}
+  /* solution: architecture centerpiece */
+  .stack{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:0}
+  .layer{width:100%;max-width:660px;border:1px solid var(--line2);border-radius:14px;padding:20px 22px;text-align:center;background:var(--surface)}
+  .layer.core{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,90,60,.1),var(--raised));box-shadow:0 0 60px rgba(255,90,60,.12)}
+  .layer .lt{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .layer .lb{font-size:18px;font-weight:700;margin-top:2px}
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+  .chip{font-size:13px;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--muted2);background:var(--ink)}
+  .flow{color:var(--muted);font-size:22px;margin:6px 0;opacity:.6}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  @media(max-width:760px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .pillar .big{font-size:30px;font-weight:850;letter-spacing:-.02em}
+  .pillar h4{font-size:16px;margin-top:6px}
+  .pillar p{color:var(--muted);font-size:14px;margin-top:6px}
+  /* banner */
+  .banner{margin-top:24px;border:1px solid var(--line2);border-radius:18px;padding:30px;background:
+    radial-gradient(500px 200px at 100% 0,rgba(76,196,255,.12),transparent),var(--surface);
+    display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+  .banner .t{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cyan)}
+  .banner h3{font-size:24px;font-weight:800;margin-top:6px;max-width:22ch}
+  .banner .num{font-size:44px;font-weight:850;letter-spacing:-.03em;color:var(--cyan);white-space:nowrap}
+  /* market bars */
+  .mkt{margin-top:44px;display:grid;gap:22px;max-width:760px}
+  .mbar .top{display:flex;justify-content:space-between;align-items:baseline}
+  .mbar .name{font-size:17px;font-weight:600}
+  .mbar .val{font-size:26px;font-weight:850;letter-spacing:-.02em}
+  .mbar .track{height:16px;border-radius:999px;background:var(--surface);overflow:hidden;margin-top:10px;border:1px solid var(--line)}
+  .mbar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .mbar.two .fill{background:linear-gradient(90deg,var(--cyan),#7ad6ff)}
+  .mbar .cap{font-size:13px;color:var(--muted);margin-top:8px}
+  /* positioning matrix */
+  .matrix{margin-top:44px;position:relative;aspect-ratio:16/11;max-width:760px;border:1px solid var(--line);border-radius:18px;background:
+    linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 25%,
+    linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/25% 100%,var(--surface)}
+  .matrix .axl{position:absolute;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .axl.x{bottom:-26px;left:50%;transform:translateX(-50%)}
+  .axl.y{top:50%;left:-14px;transform:translateY(-50%) rotate(-90deg);transform-origin:left}
+  .dot{position:absolute;transform:translate(-50%,50%)}
+  .dot span{display:block;width:16px;height:16px;border-radius:50%;margin:0 auto 6px}
+  .dot small{font-size:12px;color:var(--muted2);white-space:nowrap;font-weight:600}
+  .dot.me span{width:22px;height:22px;background:var(--accent);box-shadow:0 0 0 6px rgba(255,90,60,.2)}
+  .dot.me small{color:var(--paper);font-weight:800}
+  .dot.o span{background:var(--muted)}
+  /* swot */
+  .swot{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px}
+  @media(max-width:720px){.swot{grid-template-columns:1fr}}
+  .q{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--surface)}
+  .q h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+  .q ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .q li{color:var(--muted2);font-size:15px;padding-left:20px;position:relative}
+  .q li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:currentColor}
   /* pricing */
-  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
   @media(max-width:900px){.tiers{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:520px){.tiers{grid-template-columns:1fr}}
-  .tier{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
-  .tier.feat{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,90,60,.08),var(--surface))}
-  .tier .price{font-size:26px;font-weight:800;margin:6px 0}
-  .tier .who{font-size:13px;color:var(--muted);margin-top:10px}
-  /* swot */
-  .swot{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
-  @media(max-width:720px){.swot{grid-template-columns:1fr}}
-  .swot .q{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--surface)}
-  .swot h4{font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
-  .swot.s h4{color:var(--good)} .qs{border-left:3px solid var(--good)!important}
-  .qo{border-left:3px solid var(--cyan)!important} .qw{border-left:3px solid var(--accent2)!important}
-  .qt{border-left:3px solid var(--accent)!important}
-  /* arch */
-  .arch{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;overflow-x:auto}
-  .layer{border:1px solid var(--line2);border-radius:10px;padding:14px 16px;margin:0 auto;max-width:640px;text-align:center;background:var(--raised)}
-  .layer.mid{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,90,60,.08),var(--raised))}
-  .layer .lt{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-  .chip{font-size:12px;border:1px solid var(--line);border-radius:7px;padding:4px 9px;color:var(--muted2)}
-  .arrow{text-align:center;color:var(--muted);margin:8px 0;font-size:18px}
-  /* revenue mix */
-  .mix{display:flex;gap:10px;margin-top:14px}
-  .bar{flex:1}
-  .bar .track{height:12px;border-radius:999px;overflow:hidden;background:var(--ink);display:flex}
-  .bar .awp{background:var(--accent)} .bar .ag{background:var(--cyan)}
-  .bar .yr{font-size:12px;color:var(--muted);margin-top:6px;text-align:center}
-  footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--muted)}
-  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:14px}
+  .tier{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
+  .tier.feat{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,90,60,.1),var(--surface));transform:scale(1.03)}
+  .tier .tn{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  .tier .price{font-size:30px;font-weight:850;margin:8px 0;letter-spacing:-.02em}
+  .tier .who{font-size:13px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+  /* financials */
+  .fin{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin-top:44px;align-items:start}
+  @media(max-width:820px){.fin{grid-template-columns:1fr}}
+  .assum{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat .n{font-size:26px;font-weight:850;letter-spacing:-.02em}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .mix{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .mixbar{margin-bottom:16px}
+  .mixbar .yl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .mixbar .track{height:26px;border-radius:8px;overflow:hidden;display:flex;font-size:12px;font-weight:700}
+  .mixbar .awp{background:var(--accent);color:#0a0c10;display:grid;place-items:center}
+  .mixbar .ag{background:var(--cyan);color:#0a0c10;display:grid;place-items:center}
+  /* gtm */
+  .gtm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  @media(max-width:760px){.gtm{grid-template-columns:1fr}}
+  .g{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .g .ic{font-size:22px}.g h4{font-size:17px;margin:10px 0 4px}.g p{color:var(--muted);font-size:14px}
+  footer{border-top:1px solid var(--line);padding:48px 0 72px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <a class="brand" href="#top"><span class="logo">A</span> AI Firewall</a>
-  <div class="navlinks">
-    <a href="#problem">Problem</a><a href="#solution">Solution</a>
-    <a href="#market">Market</a><a href="#pricing">Pricing</a><a href="#financials">Financials</a>
-  </div>
-  <a class="btn btn-o" href="https://github.com/taranggoyal70/a10-ai-firewall-hackathon-2025">Repo &amp; deck</a>
+  <a class="btn btn-o" href="https://github.com/taranggoyal70/a10-ai-firewall-hackathon-2025">Repo &amp; deck ↗</a>
 </div></nav>
 
 <header id="top" class="hero"><div class="wrap">
-  <span class="badge">🏆 1st place — A10 Networks AI Product Manager Hackathon 2025</span>
-  <h1>Unblock enterprise AI by<br><span class="grad">making it safe.</span></h1>
-  <p class="lede">A product strategy for <b>A10 AI Workload Protection</b> — the security + performance layer that lets enterprises actually deploy AI, turning A10 from a networking company into an AI-infrastructure-security leader.</p>
-  <p class="quote">"In the AI era, security isn't an add-on — it's the foundation. A10 provides the secure, high-performance infrastructure that makes enterprise AI possible."</p>
+  <span class="pill">🏆 1st place · A10 Networks AI PM Hackathon 2025</span>
+  <h1>Make enterprise AI <span class="grad">safe to ship.</span></h1>
+  <p class="lead">A product strategy for <b>A10 AI Workload Protection</b> — the security + speed layer that finally lets enterprises deploy AI.</p>
   <div class="cta">
-    <a class="btn btn-a" href="#solution">See the product →</a>
-    <a class="btn btn-o" href="https://github.com/taranggoyal70/a10-ai-firewall-hackathon-2025">Read the full deck</a>
+    <a class="btn btn-a" href="#solution">See the product ↓</a>
+    <a class="btn btn-o" href="https://github.com/taranggoyal70/a10-ai-firewall-hackathon-2025">Full deck</a>
   </div>
   <div class="metrics">
-    <div class="metric"><div class="n grad">$60M</div><div class="l">ARR projection · 3 years</div></div>
-    <div class="metric"><div class="n">95%</div><div class="l">threat-detection accuracy</div></div>
-    <div class="metric"><div class="n">40%</div><div class="l">inference-latency reduction</div></div>
-    <div class="metric"><div class="n">15%</div><div class="l">target market-share capture</div></div>
+    <div class="metric"><div class="n grad">$60M</div><div class="l">ARR in 3 years</div></div>
+    <div class="metric"><div class="n">95%</div><div class="l">threat detection</div></div>
+    <div class="metric"><div class="n">40%</div><div class="l">lower AI latency</div></div>
+    <div class="metric"><div class="n">15%</div><div class="l">market share target</div></div>
   </div>
 </div></header>
 
-<section id="problem"><div class="wrap">
-  <div class="kicker">The problem</div>
-  <h2>Three barriers block enterprise AI adoption</h2>
-  <p class="sub">Enterprises want AI but can't deploy it safely. A10 is uniquely positioned — security + networking DNA — to remove exactly this chokepoint.</p>
-  <div class="grid3">
-    <div class="card"><div class="tag">01 · Security</div><h3>Unacceptable risk</h3><p>Data leaks, prompt injection, and model poisoning make AI deployment a liability leadership won't sign off on.</p></div>
-    <div class="card"><div class="tag">02 · Performance</div><h3>Latency at scale</h3><p>AI inference workloads hit severe latency bottlenecks in production, limiting real-world applications.</p></div>
-    <div class="card"><div class="tag">03 · ROI</div><h3>Unclear returns</h3><p>Without security and performance metrics, teams can't justify AI investment to the board.</p></div>
+<section><div class="wrap">
+  <div class="eyebrow">The problem</div>
+  <h2>Enterprises want AI. Three things stop them.</h2>
+  <div class="rows">
+    <div class="row"><div class="idx">01</div><div><h3>🔓 It's not safe</h3><p>Data leaks, prompt injection, model poisoning — risk leadership won't sign off on.</p></div></div>
+    <div class="row"><div class="idx">02</div><div><h3>🐢 It's too slow</h3><p>AI inference hits latency walls in production, killing real-world use.</p></div></div>
+    <div class="row"><div class="idx">03</div><div><h3>❓ ROI is unclear</h3><p>No security or performance metrics means no board sign-off.</p></div></div>
   </div>
 </div></section>
 
 <section id="solution"><div class="wrap">
-  <div class="kicker">The solution</div>
-  <h2>A10 AI Workload Protection (AWP)</h2>
-  <p class="sub">One layer between enterprise apps and their AI infrastructure — securing and accelerating every request.</p>
-  <div class="grid3">
-    <div class="card"><div class="tag">AI-specific security</div><h3>Purpose-built defense</h3><p>Detects prompt injection, model poisoning, and AI-specific threats.</p><ul class="clean"><li>95% detection accuracy</li><li>Real-time threat scoring</li><li>PII detection &amp; output filtering</li></ul></div>
-    <div class="card"><div class="tag">Performance</div><h3>Optimized for AI traffic</h3><p>AI-aware routing and load balancing that keeps security on without the tax.</p><ul class="clean"><li>40% lower inference latency</li><li>Intelligent request routing</li><li>Security posture maintained</li></ul></div>
-    <div class="card"><div class="tag">ROI</div><h3>Metrics leadership trusts</h3><p>A built-in analytics dashboard quantifies the security and performance value of every AI dollar.</p><ul class="clean"><li>Security + performance KPIs</li><li>Investment-return reporting</li></ul></div>
+  <div class="eyebrow">The solution</div>
+  <h2>One layer. Secure and fast.</h2>
+  <p class="lead">A10 AI Workload Protection sits between your apps and your AI — inspecting every request, without the latency tax.</p>
+  <div class="stack">
+    <div class="layer"><div class="lt">Your applications</div></div>
+    <div class="flow">↓</div>
+    <div class="layer core"><div class="lt">A10 AI Workload Protection</div>
+      <div class="chips"><span class="chip">🛡️ Threat detection</span><span class="chip">⚡ Performance</span><span class="chip">📊 ROI analytics</span></div></div>
+    <div class="flow">↓</div>
+    <div class="layer"><div class="lt">AI infrastructure</div>
+      <div class="chips"><span class="chip">ML models</span><span class="chip">Vector DBs</span><span class="chip">LLM APIs</span></div></div>
   </div>
-
-  <div class="card" style="margin-top:16px;border-color:var(--line2);background:linear-gradient(180deg,rgba(56,189,248,.06),var(--surface))">
-    <div class="tag" style="color:var(--cyan)">Visionary product · $3.5B by 2028</div>
-    <h3>A10 AgentGuard — securing agentic AI</h3>
-    <p>The next category: monitoring and validating autonomous agent actions, multi-agent orchestration security, and guardrails for autonomous systems. Minimal established competition, <b>first-mover advantage</b>, and enterprises will pay 2–3× more for it.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="big grad">95%</div><h4>Detects AI threats</h4><p>Prompt injection, poisoning, and data leakage — caught in real time.</p></div>
+    <div class="pillar"><div class="big grad">40%</div><h4>Faster inference</h4><p>AI-aware routing keeps security on without slowing you down.</p></div>
+    <div class="pillar"><div class="big grad">1</div><h4>Dashboard for ROI</h4><p>Security + performance metrics the board actually trusts.</p></div>
   </div>
-
-  <div class="kicker" style="margin-top:44px">Architecture</div>
-  <div class="arch">
-    <div class="layer"><div class="lt">Enterprise applications</div></div>
-    <div class="arrow">↓</div>
-    <div class="layer mid"><div class="lt">A10 AI Workload Protection</div><div class="chips"><span class="chip">Threat detection</span><span class="chip">Performance optimization</span><span class="chip">Analytics dashboard</span></div></div>
-    <div class="arrow">↓</div>
-    <div class="layer"><div class="lt">AI infrastructure</div><div class="chips"><span class="chip">ML models</span><span class="chip">Vector DBs</span><span class="chip">LLM APIs</span></div></div>
-  </div>
-</div></section>
-
-<section id="market"><div class="wrap">
-  <div class="kicker">Market</div>
-  <h2>A dual-market strategy on a 30% CAGR wave</h2>
-  <div class="grid2">
-    <div class="card"><h3>AI security — today</h3><p>Growing at <b>30% CAGR</b> as AI deployment accelerates and regulators push for AI governance. Large, expanding TAM of enterprises running ML/AI in production.</p></div>
-    <div class="card"><h3>Agentic AI — the greenfield</h3><p><b>$3.5B by 2028</b> with minimal established players. First-mover advantage lets A10 target <b>20% share</b> of an emerging category.</p></div>
-  </div>
-  <div class="kicker" style="margin-top:44px">Competitive landscape</div>
-  <div class="grid3">
-    <div class="card"><h3>Palo Alto Networks</h3><p>Brand + enterprise reach, but traditional-security focus and slower AI adaptation.</p></div>
-    <div class="card"><h3>Cloud providers</h3><p>AWS / GCP / Azure — scale and integration, but general-purpose, not AI-optimized.</p></div>
-    <div class="card"><h3>AI-security startups</h3><p>AI-native and innovative, but lack enterprise credibility and scale.</p></div>
-  </div>
-  <div class="card" style="margin-top:16px">
-    <div class="tag">A10's edge</div>
-    <ul class="clean" style="display:grid;grid-template-columns:1fr 1fr;gap:7px 24px">
-      <li>Proven networking + security expertise</li><li>High-performance, low-latency infra</li>
-      <li>Established enterprise relationships</li><li>First-mover in agentic-AI security</li>
-      <li>Unique security + performance combo</li><li>Partnerships with GCP &amp; Azure</li>
-    </ul>
+  <div class="banner">
+    <div><div class="t">Visionary product</div><h3>A10 AgentGuard — security for autonomous AI agents</h3></div>
+    <div class="num">$3.5B<span style="font-size:15px;color:var(--muted);display:block;text-align:right">by 2028</span></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="kicker">SWOT</div>
-  <h2>Why A10 wins this</h2>
+  <div class="eyebrow">Market</div>
+  <h2>Two markets, one wedge.</h2>
+  <div class="mkt">
+    <div class="mbar"><div class="top"><span class="name">AI security — today</span><span class="val grad">30% CAGR</span></div>
+      <div class="track"><div class="fill" style="width:62%"></div></div><div class="cap">Large, fast-growing TAM as enterprises push AI into production.</div></div>
+    <div class="mbar two"><div class="top"><span class="name">Agentic AI security — greenfield</span><span class="val" style="color:var(--cyan)">$3.5B</span></div>
+      <div class="track"><div class="fill" style="width:38%"></div></div><div class="cap">By 2028, near-zero established competition → first-mover advantage.</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Positioning</div>
+  <h2>Nobody else has both.</h2>
+  <p class="lead">Security depth and AI-optimization — A10 is the only one in the top-right.</p>
+  <div class="matrix">
+    <span class="axl x">AI-optimized →</span>
+    <span class="axl y">Security depth →</span>
+    <div class="dot me" style="left:82%;bottom:82%"><span></span><small>A10 AI Firewall</small></div>
+    <div class="dot o" style="left:26%;bottom:78%"><span></span><small>Palo Alto</small></div>
+    <div class="dot o" style="left:58%;bottom:34%"><span></span><small>Cloud (AWS/GCP)</small></div>
+    <div class="dot o" style="left:74%;bottom:44%"><span></span><small>AI startups</small></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">SWOT</div>
+  <h2>Why A10 wins this.</h2>
   <div class="swot">
-    <div class="q qs"><h4 style="color:var(--good)">Strengths</h4><ul class="clean"><li>Proven, reliable product line</li><li>Low-latency networking expertise</li><li>Global enterprise base &amp; credibility</li></ul></div>
-    <div class="q qo"><h4 style="color:var(--cyan)">Opportunities</h4><ul class="clean"><li>AI-infra security market growth</li><li>Agentic AI — a new category</li><li>Regulatory push for AI security</li></ul></div>
-    <div class="q qw"><h4 style="color:var(--accent2)">Weaknesses</h4><ul class="clean"><li>Perception gap in AI security</li><li>Innovation speed vs. rivals</li><li>Smaller R&amp;D scale</li></ul></div>
-    <div class="q qt"><h4 style="color:var(--accent)">Threats</h4><ul class="clean"><li>Palo Alto expanding into AI security</li><li>Rapid AI technology evolution</li><li>Security-vendor consolidation</li></ul></div>
+    <div class="q"><h4 style="color:var(--good)">Strengths</h4><ul style="color:var(--good)"><li><span style="color:var(--muted2)">Proven low-latency networking</span></li><li><span style="color:var(--muted2)">Global enterprise base</span></li><li><span style="color:var(--muted2)">Security credibility</span></li></ul></div>
+    <div class="q"><h4 style="color:var(--cyan)">Opportunities</h4><ul style="color:var(--cyan)"><li><span style="color:var(--muted2)">AI-infra security boom</span></li><li><span style="color:var(--muted2)">Agentic AI — new category</span></li><li><span style="color:var(--muted2)">Regulatory tailwinds</span></li></ul></div>
+    <div class="q"><h4 style="color:var(--accent2)">Weaknesses</h4><ul style="color:var(--accent2)"><li><span style="color:var(--muted2)">AI-security perception gap</span></li><li><span style="color:var(--muted2)">Innovation speed</span></li><li><span style="color:var(--muted2)">Smaller R&amp;D scale</span></li></ul></div>
+    <div class="q"><h4 style="color:var(--accent)">Threats</h4><ul style="color:var(--accent)"><li><span style="color:var(--muted2)">Palo Alto moving in</span></li><li><span style="color:var(--muted2)">Fast AI evolution</span></li><li><span style="color:var(--muted2)">Vendor consolidation</span></li></ul></div>
   </div>
 </div></section>
 
 <section id="pricing"><div class="wrap">
-  <div class="kicker">Packaging</div>
-  <h2>Four tiers, one conversion funnel</h2>
-  <p class="sub">A free tier creates a value gap that drives conversion; enterprises pay a premium where the risk is highest.</p>
+  <div class="eyebrow">Packaging</div>
+  <h2>Free to land, premium where risk is highest.</h2>
   <div class="tiers">
-    <div class="tier"><div class="tag">Free</div><div class="price">$0</div><p style="color:var(--muted2);font-size:14px">Basic AI workload protection, community support.</p><div class="who">Startups · POCs</div></div>
-    <div class="tier feat"><div class="tag">Professional</div><div class="price">$5K<span style="font-size:14px;color:var(--muted)">/mo</span></div><p style="color:var(--muted2);font-size:14px">Advanced detection, performance optimization, 24/7 support.</p><div class="who">Mid-market · AI-first startups</div></div>
-    <div class="tier"><div class="tag">Enterprise</div><div class="price">$15K<span style="font-size:14px;color:var(--muted)">/mo</span></div><p style="color:var(--muted2);font-size:14px">Full AI security suite, custom integrations, dedicated support.</p><div class="who">Large / regulated enterprises</div></div>
-    <div class="tier"><div class="tag" style="color:var(--cyan)">AgentGuard</div><div class="price">$25K<span style="font-size:14px;color:var(--muted)">/mo</span></div><p style="color:var(--muted2);font-size:14px">Agentic-AI security, multi-agent orchestration, advanced analytics.</p><div class="who">AI-native · autonomous systems</div></div>
+    <div class="tier"><div class="tn" style="color:var(--muted2)">Free</div><div class="price">$0</div><div class="who">Startups &amp; POCs</div></div>
+    <div class="tier feat"><div class="tn" style="color:var(--accent)">Professional</div><div class="price">$5K<span style="font-size:14px;color:var(--muted)">/mo</span></div><div class="who">Mid-market &amp; AI-first</div></div>
+    <div class="tier"><div class="tn" style="color:var(--muted2)">Enterprise</div><div class="price">$15K<span style="font-size:14px;color:var(--muted)">/mo</span></div><div class="who">Large / regulated</div></div>
+    <div class="tier"><div class="tn" style="color:var(--cyan)">AgentGuard</div><div class="price">$25K<span style="font-size:14px;color:var(--muted)">/mo</span></div><div class="who">AI-native systems</div></div>
   </div>
 </div></section>
 
 <section id="financials"><div class="wrap">
-  <div class="kicker">Financials</div>
-  <h2>The path to $60M ARR in 3 years</h2>
-  <div class="grid2">
-    <div class="card"><h3>Growth assumptions</h3><ul class="clean"><li>Customer acquisition +80% YoY (Year 1)</li><li>Enterprise ACV +10–20% YoY as features expand</li><li>95% retention — mission-critical stickiness</li><li>30% annual upsell of existing customers</li><li>120% net revenue retention target</li></ul></div>
-    <div class="card"><h3>Revenue mix shifts to AgentGuard</h3>
-      <div class="mix">
-        <div class="bar"><div class="track"><div class="awp" style="width:80%"></div><div class="ag" style="width:20%"></div></div><div class="yr">Y1 · 80/20</div></div>
-        <div class="bar"><div class="track"><div class="awp" style="width:58%"></div><div class="ag" style="width:42%"></div></div><div class="yr">Y3 · 58/42</div></div>
-        <div class="bar"><div class="track"><div class="awp" style="width:55%"></div><div class="ag" style="width:45%"></div></div><div class="yr">Y4 · 55/45</div></div>
-      </div>
-      <p style="color:var(--muted);font-size:13px;margin-top:12px"><span style="color:var(--accent)">■</span> AWP &nbsp; <span style="color:var(--cyan)">■</span> AgentGuard — as agentic-AI adoption accelerates.</p>
+  <div class="eyebrow">Financials</div>
+  <h2>The path to $60M ARR.</h2>
+  <div class="fin">
+    <div class="assum">
+      <div class="stat"><div class="n grad">+80%</div><div class="l">customer growth · Y1</div></div>
+      <div class="stat"><div class="n grad">95%</div><div class="l">retention</div></div>
+      <div class="stat"><div class="n grad">120%</div><div class="l">net revenue retention</div></div>
+      <div class="stat"><div class="n grad">30%</div><div class="l">annual upsell</div></div>
+    </div>
+    <div class="mix">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:14px">Revenue mix shifts to AgentGuard <span style="color:var(--accent)">■ AWP</span> <span style="color:var(--cyan)">■ AgentGuard</span></div>
+      <div class="mixbar"><div class="yl"><span>Year 1</span></div><div class="track"><div class="awp" style="width:80%">80%</div><div class="ag" style="width:20%">20%</div></div></div>
+      <div class="mixbar"><div class="yl"><span>Year 3</span></div><div class="track"><div class="awp" style="width:58%">58%</div><div class="ag" style="width:42%">42%</div></div></div>
+      <div class="mixbar"><div class="yl"><span>Year 4</span></div><div class="track"><div class="awp" style="width:55%">55%</div><div class="ag" style="width:45%">45%</div></div></div>
     </div>
   </div>
-  <div class="kicker" style="margin-top:44px">Go-to-market</div>
-  <div class="grid3">
-    <div class="card"><h3>Thought leadership</h3><p>Establish A10 as the authority on AI infrastructure security.</p></div>
-    <div class="card"><h3>Cloud partnerships</h3><p>Co-sell with GCP &amp; Azure to reach enterprises already building AI.</p></div>
-    <div class="card"><h3>Land &amp; expand</h3><p>Free → Professional → Enterprise, then upsell AgentGuard as agents ship.</p></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Go-to-market</div>
+  <h2>Land, then expand.</h2>
+  <div class="gtm">
+    <div class="g"><div class="ic">🎤</div><h4>Thought leadership</h4><p>Own the AI-security conversation.</p></div>
+    <div class="g"><div class="ic">🤝</div><h4>Cloud partnerships</h4><p>Co-sell with GCP &amp; Azure.</p></div>
+    <div class="g"><div class="ic">📈</div><h4>Land &amp; expand</h4><p>Free → Pro → Enterprise → AgentGuard.</p></div>
   </div>
 </div></section>
 
 <footer><div class="wrap foot">
-  <div>
-    <div class="brand" style="margin-bottom:6px"><span class="logo">A</span> A10 AI Firewall</div>
-    <div>Winning product strategy · A10 Networks AI PM Hackathon 2025 · by Tarang Goyal.</div>
-  </div>
+  <div class="brand"><span class="logo">A</span> A10 AI Firewall — PM Hackathon 2025 · by Tarang Goyal</div>
   <a class="btn btn-o" href="https://github.com/taranggoyal70/a10-ai-firewall-hackathon-2025">Repo &amp; full deck ↗</a>
 </div></footer>
 </body>
