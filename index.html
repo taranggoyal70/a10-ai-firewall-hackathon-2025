@@ -306,5 +306,38 @@
   <div class="brand"><span class="logo">A</span> A10 AI Firewall — PM Hackathon 2025 · by Tarang Goyal</div>
   <a class="btn btn-o" href="https://github.com/taranggoyal70/a10-ai-firewall-hackathon-2025">Repo &amp; full deck ↗</a>
 </div></footer>
+<script>
+  (function () {
+    var incidents = document.getElementById("roi-incidents");
+    var cost = document.getElementById("roi-cost");
+    var detect = document.getElementById("roi-detect");
+    if (!incidents || !cost || !detect) return;
+
+    function money(millions) {
+      if (millions >= 1) return "$" + millions.toFixed(1) + "M";
+      return "$" + Math.round(millions * 1000) + "K";
+    }
+
+    function update() {
+      var n = Number(incidents.value);
+      var costK = Number(cost.value); // thousands per incident
+      var pct = Number(detect.value) / 100;
+      var prevented = n * pct;
+      var savingsM = (prevented * costK) / 1000; // -> millions
+
+      document.getElementById("roi-incidents-v").textContent = String(n);
+      document.getElementById("roi-cost-v").textContent = money(costK / 1000);
+      document.getElementById("roi-detect-v").textContent = Math.round(pct * 100) + "%";
+      document.getElementById("roi-savings").textContent = money(savingsM);
+      document.getElementById("roi-prevented").textContent = prevented.toFixed(1);
+      document.getElementById("roi-total").textContent = String(n);
+    }
+
+    [incidents, cost, detect].forEach(function (el) {
+      el.addEventListener("input", update);
+    });
+    update();
+  })();
+</script>
 </body>
 </html>
